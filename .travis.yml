@@ -25,10 +25,10 @@ after_success:
       echo "The build on Docker Hub is not triggered."
     else
       echo "The tag ${version} is not available at Docker Hub."
-      echo "Triggering build on Docker Hub ..."
-      curl -X POST "${DOCKER_HUB_TRIGGER_URL}"
+      echo "Pushing images to Docker Hub ..."
+      ./push-images.sh
     fi
   else
-    echo "Triggering build on Docker Hub ..."
-    curl -X POST "${DOCKER_HUB_TRIGGER_URL}"
+    echo "Pushing images to Docker Hub ..."
+    ./push-images.sh
   fi
